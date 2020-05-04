@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: app-config
+    labels:
+      app: ggckad
+data:
+  connection_string: 'localhost:4096'
+  external_url: 'google.com'
