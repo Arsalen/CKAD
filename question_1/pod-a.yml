@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-a
+  labels:
+    app: ggckad
+spec:
+  containers:
+    - name: simple-http-server
+      image: kubegoldenguide/simple-http-server
