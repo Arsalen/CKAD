@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: question-three-pod
+  labels:
+    app: ggckad
+spec:
+  securityContext:
+    fsGroup: 3000
+  containers:
+    - name: first-alpine-spin
+      image: kubegoldenguide/alpine-spin:1.0.0
+      securityContext:
+        runAsUser: 1000
+    - name: second-alpine-spin
+      image: kubegoldenguide/alpine-spin:1.0.0
+      securityContext:
+        runAsUser: 2000
