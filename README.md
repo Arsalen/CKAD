@@ -19,7 +19,7 @@ You will probably need these tools prior to your setup.
 
 ## Note
 
-In order to spin up a kubernetes cluster you can make use of this repository [ansible.kubernetes](https://github.com/Arsalen/kube-cluster) which makes use of flannel cni provider, or bootstrap a local environment using this tool [minikube](https://minikube.sigs.k8s.io/docs/).
+In order to spin up a kubernetes cluster you can make use of this repository [ansible.kubernetes](https://github.com/Arsalen/kube-cluster) which is based on flannel cni configurations, or bootstrap a local environment using this tool [minikube](https://minikube.sigs.k8s.io/docs/).
 
 List of all namespaces required, note that each is running on a separate context.
 
