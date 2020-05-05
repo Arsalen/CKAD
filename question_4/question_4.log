@@ -1,0 +1,51 @@
+~/CKAD$ kubectl describe pods
+Name:         question-13-pod
+Namespace:    ggckad-s4
+Priority:     0
+Node:         bodynode-virtualbox/192.168.1.49
+Start Time:   Tue, 05 May 2020 01:41:07 +0100
+Labels:       app=ggckad
+Annotations:  Status:  Running
+IP:           10.244.1.10
+IPs:
+  IP:  10.244.1.10
+Containers:
+  question-thirteen:
+    Container ID:   docker://aba5a2818ebb2ea6af56b28e70bc86eb314c239a25e668f7fd87bd1562e329e0
+    Image:          kubegoldenguide/question-thirteen
+    Image ID:       docker-pullable://kubegoldenguide/question-thirteen@sha256:61bbe55e047d9a708770e171060a1fef8aaad6247a1ff495bc5ac0edb10ac8fc
+    Port:           8000/TCP
+    Host Port:      8000/TCP
+    State:          Running
+      Started:      Tue, 05 May 2020 01:41:12 +0100
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:health-check/health delay=90s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:health-check/health delay=90s timeout=1s period=10s #success=1 #failure=3
+    Startup:        http-get http://:health-check/health delay=60s timeout=1s period=10s #success=1 #failure=2
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-886pf (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-886pf:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-886pf
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                          Message
+  ----    ------     ----  ----                          -------
+  Normal  Scheduled  107s  default-scheduler             Successfully assigned ggckad-s4/question-13-pod to bodynode-virtualbox
+  Normal  Pulling    102s  kubelet, bodynode-virtualbox  Pulling image "kubegoldenguide/question-thirteen"
+  Normal  Pulled     100s  kubelet, bodynode-virtualbox  Successfully pulled image "kubegoldenguide/question-thirteen"
+  Normal  Created    99s   kubelet, bodynode-virtualbox  Created container question-thirteen
+  Normal  Started    99s   kubelet, bodynode-virtualbox  Started container question-thirteen

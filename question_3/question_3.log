@@ -1,0 +1,63 @@
+~/CKAD$ kubectl describe pods/question-three-pod
+Name:         question-three-pod
+Namespace:    ggckad-s2
+Priority:     0
+Node:         bodynode-virtualbox/192.168.1.49
+Start Time:   Tue, 05 May 2020 00:23:09 +0100
+Labels:       app=ggckad
+Annotations:  Status:  Running
+IP:           10.244.1.8
+IPs:
+  IP:  10.244.1.8
+Containers:
+  first-alpine-spin:
+    Container ID:   docker://8ea9e1763121f3e77cddffa44117769d4a7bf9c4a266e78787000a665c2eeb74
+    Image:          kubegoldenguide/alpine-spin:1.0.0
+    Image ID:       docker-pullable://kubegoldenguide/alpine-spin@sha256:e4856b0e84f9e43d010ff7dc124e4c22ed58737c4da176439efe4223c106da5d
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 05 May 2020 00:23:12 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xrzzr (ro)
+  second-alpine-spin:
+    Container ID:   docker://44bd03204814c55345298413806643b0177d3d13cda818dac37ab3e12067e7bc
+    Image:          kubegoldenguide/alpine-spin:1.0.0
+    Image ID:       docker-pullable://kubegoldenguide/alpine-spin@sha256:e4856b0e84f9e43d010ff7dc124e4c22ed58737c4da176439efe4223c106da5d
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 05 May 2020 00:23:13 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xrzzr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-xrzzr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-xrzzr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                          Message
+  ----    ------     ----  ----                          -------
+  Normal  Scheduled  41s   default-scheduler             Successfully assigned ggckad-s2/question-three-pod to bodynode-virtualbox
+  Normal  Pulled     37s   kubelet, bodynode-virtualbox  Container image "kubegoldenguide/alpine-spin:1.0.0" already present on machine
+  Normal  Created    36s   kubelet, bodynode-virtualbox  Created container first-alpine-spin
+  Normal  Started    36s   kubelet, bodynode-virtualbox  Started container first-alpine-spin
+  Normal  Pulled     36s   kubelet, bodynode-virtualbox  Container image "kubegoldenguide/alpine-spin:1.0.0" already present on machine
+  Normal  Created    35s   kubelet, bodynode-virtualbox  Created container second-alpine-spin
+  Normal  Started    35s   kubelet, bodynode-virtualbox  Started container second-alpine-spin

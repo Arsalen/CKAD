@@ -1,0 +1,64 @@
+~/CKAD$ kubectl describe cm
+Name:         app-config
+Namespace:    ggckad-s2
+Labels:       app=ggckad
+Annotations:  
+Data
+====
+connection_string:
+----
+localhost:4096
+external_url:
+----
+google.com
+Events:  <none>
+
+~/CKAD$ kubectl describe pods
+Name:         question-two-pod
+Namespace:    ggckad-s2
+Priority:     0
+Node:         bodynode-virtualbox/192.168.1.49
+Start Time:   Mon, 04 May 2020 23:55:09 +0100
+Labels:       app=ggckad
+Annotations:  Status:  Running
+IP:           10.244.1.7
+IPs:
+  IP:  10.244.1.7
+Containers:
+  alpine-spin:
+    Container ID:   docker://1ca925d1de7153e571190db0a0897e7ac4438b2950f4dcadc1d36a5d6ddb8238
+    Image:          kubegoldenguide/alpine-spin:1.0.0
+    Image ID:       docker-pullable://kubegoldenguide/alpine-spin@sha256:e4856b0e84f9e43d010ff7dc124e4c22ed58737c4da176439efe4223c106da5d
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 04 May 2020 23:55:12 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      app-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-xrzzr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-xrzzr:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-xrzzr
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age    From                          Message
+  ----    ------     ----   ----                          -------
+  Normal  Scheduled  2m24s  default-scheduler             Successfully assigned ggckad-s2/question-two-pod to bodynode-virtualbox
+  Normal  Pulled     2m20s  kubelet, bodynode-virtualbox  Container image "kubegoldenguide/alpine-spin:1.0.0" already present on machine
+  Normal  Created    2m19s  kubelet, bodynode-virtualbox  Created container alpine-spin
+  Normal  Started    2m19s  kubelet, bodynode-virtualbox  Started container alpine-spin
