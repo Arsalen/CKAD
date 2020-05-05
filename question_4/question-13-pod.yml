@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: question-13-pod
+  labels:
+    app: ggckad
+spec:
+  containers:
+    - name: question-thirteen
+      image: kubegoldenguide/question-thirteen
+      ports:
+        - name: health-check
+          containerPort: 8000
+          hostPort: 8000
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: health-check
+        initialDelaySeconds: 90
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: health-check
+        initialDelaySeconds: 90
+      startupProbe:
+        httpGet:
+          path: /health
+          port: health-check
+        failureThreshold: 2
+        initialDelaySeconds: 60
